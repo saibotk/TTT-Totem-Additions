@@ -1,9 +1,11 @@
 AddCSLuaFile( "cl_init.lua" )
 AddCSLuaFile( "cl_show_evil_gui.lua" )
 AddCSLuaFile( "cl_show_gui_hint.lua" )
+AddCSLuaFile( "cl_show_deathgrip_help.lua" )
 
 local tttTotemAdditionsShiniGUIInfo = CreateConVar("ttt_totem_additions_shinigui_info","1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_ARCHIVE, FCVAR_NOTIFY}, "Should TTT Totem Additions Shinigami Traitor GUI be active?"):GetBool()
 local tttTotemAdditionsShiniGUIHint = CreateConVar("ttt_totem_additions_shinigui_hint","1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_ARCHIVE, FCVAR_NOTIFY}, "Should TTT Totem Additions Shinigami hint sign be active?"):GetBool()
+local tttTotemAdditionsShiniGUIDGHelp = CreateConVar("ttt_totem_additions_shinigui_deathgrip_help", "1", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_ARCHIVE, FCVAR_NOTIFY}, "Should TTT Totem Additions Shinigami DeathGrip Info be active?"):GetBool()
 
 util.AddNetworkString( "TTTShinigamiInfoGUI" )
 util.AddNetworkString( "TTTShinigamiInfoGUIHint" )

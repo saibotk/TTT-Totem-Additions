@@ -1,6 +1,6 @@
 local DPanelGH = nil
 
-function clearPanelGH()
+local function clearPanelGH()
   print( "Shini Info Gui cleanup" )
   if DPanelGH then
     print( " -- success" )

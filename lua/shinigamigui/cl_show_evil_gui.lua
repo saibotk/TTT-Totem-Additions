@@ -1,6 +1,6 @@
 local DPanelEG = nil
 
-function clearPanelEG()
+local function clearPanelEG()
   if DPanelEG then
     DPanelEG:Remove()
   end
