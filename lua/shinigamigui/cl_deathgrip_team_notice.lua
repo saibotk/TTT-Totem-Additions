@@ -16,7 +16,16 @@
 --    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -------------------------------------------------------------------------------
 
-include( "cl_show_evil_gui.lua" )
-include( "cl_show_gui_hint.lua" )
-include( "cl_show_deathgrip_help.lua" )
-include( "cl_deathgrip_team_notice.lua" )
+-- Create notification framework
+if not ENHANCED_NOTIFICATIONS then
+    include( "enhancednotificationscore/cl_init.lua" )
+end
+
+-- Receive Callback
+net.Receive( "TA_DG_NOTIF", function()
+    -- Read sent information
+    local ply = net.ReadEntity()
+    local dgply = net.ReadEntity()
+    local bgColor = Color( 255, 80, 190, 240 )
+    ENHANCED_NOTIFICATIONS:NewNotification({title=ply:GetName(),subtext="DeathGrip with " .. dgply:GetName(),color=bgColor})
+end )

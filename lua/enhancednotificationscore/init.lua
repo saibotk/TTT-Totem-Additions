@@ -1,5 +1,5 @@
 -------------------------------------------------------------------------------
---    TTT Totem Additions
+--    ENHANCED NOTIFICATION FRAMEWORK
 --    Copyright (C) 2017 saibotk (tkindanight)
 -------------------------------------------------------------------------------
 --    This program is free software: you can redistribute it and/or modify
@@ -16,7 +16,9 @@
 --    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -------------------------------------------------------------------------------
 
-include( "cl_show_evil_gui.lua" )
-include( "cl_show_gui_hint.lua" )
-include( "cl_show_deathgrip_help.lua" )
-include( "cl_deathgrip_team_notice.lua" )
+AddCSLuaFile( "cl_init.lua" )
+
+ENHANCED_NOTIFICATIONS = true
+
+-- Create ConVars for configuration
+-- CreateConVar("enf_settings_lifetime","5", {FCVAR_SERVER_CAN_EXECUTE, FCVAR_ARCHIVE, FCVAR_NOTIFY, FCVAR_REPLICATED}, "How long should a notification be active?")
