@@ -66,7 +66,7 @@ hook.Add( "TTTBeginRound", "TTTShinigamiGUIHint", function()
   end  )
 end )
 
-local function SameTeam(ply, ply_o )
+local function SameTeam( ply, ply_o )
     if IsValid( ply ) and IsValid( ply_o ) and ply:IsActive() and ( ( ply.GetTeam and ply:GetTeam() == ply_o:GetTeam() and not ply_o:GetDetective() ) or ( ply:GetRole() == ply_o:GetRole() ) ) and ply != ply_o then
         return true
     end
@@ -107,12 +107,13 @@ hook.Add( "TTTBeginRound", "TTTDeathgripNotif", function()
         end
 
         if not ply then return end
-
-        net.Start( "TA_DG_NOTIF" )
-        net.WriteEntity(ply)
-        net.WriteEntity(ply.DeathGrip)
-        net.Send(GetAliveTeammemberTableDG(ply, true))
-        if not SameTeam( ply, ply.DeathGrip ) then
+        if ply:IsSpecial() then
+            net.Start( "TA_DG_NOTIF" )
+            net.WriteEntity(ply)
+            net.WriteEntity(ply.DeathGrip)
+            net.Send(GetAliveTeammemberTableDG(ply, true))
+        end
+        if not SameTeam( ply, ply.DeathGrip ) and ply.DeathGrip:IsSpecial() then
             net.Start( "TA_DG_NOTIF" )
             net.WriteEntity(ply.DeathGrip)
             net.WriteEntity(ply)
