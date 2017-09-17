@@ -28,7 +28,6 @@ hook.Add( "TTTEndRound", "TTTShinigamiGUIHintCleanUp", clearPanelGH )
 hook.Add( "TTTPrepareRound", "TTTShinigamiGUIHintCleanUp", clearPanelGH )
 
 net.Receive( "TTTShinigamiInfoGUIHint", function()
-  print( "-- SHINIINFOGUI: Shinigami active this round! --" )
 
   DPanelGH = vgui.Create( "DPanel" )
   DPanelGH:SetPos( ScrW() - 76, ScrH() / 4 )

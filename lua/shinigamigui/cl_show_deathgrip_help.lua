@@ -18,7 +18,7 @@
 
 --LANG.AddToLanguage("english", "TA_DG_INFO", "ACTIVE DEATHGRIP")
 local function CheckTTT()
-    if gamemode.Get("terrortown") and TTTVote and DeathGripEnabled() then
+    if gamemode.Get("terrortown") and TTTVote then
         hook.Add( "HUDDrawTargetID", "TA_DG_INFO", function()
 
           local client = LocalPlayer()

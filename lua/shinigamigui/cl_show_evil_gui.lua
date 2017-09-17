@@ -48,7 +48,7 @@ net.Receive("TTTShinigamiInfoGUI", function()
   local panelPosX = ( ScrW() / 2 ) - ( panelWidth / 2 )
   local panelPosY = ScrH() - panelHeight - 95
 
-  print("panel H W PX PY: ", panelHeight, panelWidth, panelPosX, panelPosY)
+  --print("panel H W PX PY: ", panelHeight, panelWidth, panelPosX, panelPosY)
 
   DPanelEG:SetPos( panelPosX, panelPosY ) -- Set the position of the panel
   DPanelEG:SetSize( panelWidth, panelHeight ) -- Set the size of the panel
@@ -57,7 +57,7 @@ net.Receive("TTTShinigamiInfoGUI", function()
   for i, ply in pairs( EvilTbl ) do
     local pan = vgui.Create( "DPanel", DPanelEG )
 
-    print("labelpanel H W PX PY: ", lineHeight, panelWidth, 0, lineHeight * (i - 1), ply)
+    --print("labelpanel H W PX PY: ", lineHeight, panelWidth, 0, lineHeight * (i - 1), ply)
 
     pan:SetPos( 0, ( lineHeight + margin ) * (i - 1) )
     pan:SetSize( panelWidth, lineHeight )
