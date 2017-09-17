@@ -19,9 +19,7 @@
 local DPanelGH = nil
 
 local function clearPanelGH()
-  print( "Shini Info Gui cleanup" )
   if DPanelGH then
-    print( " -- success" )
     DPanelGH:Remove()
   end
 end
