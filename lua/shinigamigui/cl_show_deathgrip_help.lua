@@ -43,12 +43,16 @@ local function CheckTTT()
           end
 
           if ent:IsPlayer() then
-            if not ent:GetNWBool("disguised", false) and client.DeathGrip == ent then
+            if not ent:GetNWBool("disguised", false) and ( client.DeathGrip == ent or client.TeammatesDG == ent ) then
               draw.SimpleText( text, "TargetID", x+1, y+1, COLOR_BLACK )
               draw.SimpleText( text, "TargetID", x, y, color )
             end
           end
 
+        end )
+
+        hook.Add( "TTTPrepareRound", "TTTTADGHCleanUp", function()
+            if LocalPlayer().TeammatesDG then LocalPlayer().TeammatesDG = nil end
         end )
     end
 end

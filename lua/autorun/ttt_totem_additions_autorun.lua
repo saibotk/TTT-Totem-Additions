@@ -16,11 +16,10 @@
 --    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -------------------------------------------------------------------------------
 
+-- Create notification framework
+include( "enhancednotificationscore/shared.lua" )
+
 if SERVER then
-    -- Create notification framework
-    if not ENHANCED_NOTIFICATIONS then
-        include( "enhancednotificationscore/init.lua" )
-    end
   include( "shinigamigui/init.lua" )
 else
   include( "shinigamigui/cl_init.lua" )

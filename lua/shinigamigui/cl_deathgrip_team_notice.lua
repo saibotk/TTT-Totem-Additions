@@ -16,16 +16,12 @@
 --    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -------------------------------------------------------------------------------
 
--- Create notification framework
-if not ENHANCED_NOTIFICATIONS then
-    include( "enhancednotificationscore/cl_init.lua" )
-end
-
 -- Receive Callback
 net.Receive( "TA_DG_NOTIF", function()
     -- Read sent information
     local ply = net.ReadEntity()
     local dgply = net.ReadEntity()
-    local bgColor = Color( 255, 80, 190, 240 )
+    local bgColor = Color( 240, 40, 140, 240 )
     ENHANCED_NOTIFICATIONS:NewNotification({title=ply:GetName(),subtext="in DeathGrip with " .. dgply:GetName(),color=bgColor,lifetime=20})
+    LocalPlayer().TeammatesDG = dgply
 end )

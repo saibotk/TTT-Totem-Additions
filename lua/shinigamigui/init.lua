@@ -31,7 +31,7 @@ util.AddNetworkString( "TTTShinigamiInfoGUIHint" )
 util.AddNetworkString( "TA_DG_NOTIF" )
 
 local function SameTeam( ply, ply_o )
-    if IsValid( ply ) and IsValid( ply_o ) and ply:IsActive() and ( ( ply.GetTeam and ply:GetTeam() == ply_o:GetTeam() and not ply_o:GetDetective() ) or ( ply:GetRole() == ply_o:GetRole() ) ) and ply != ply_o then
+    if IsValid( ply ) and IsValid( ply_o ) and ply:IsActive() and ply:IsSpecial() and ply_o:IsSpecial() and ( ( ply.GetTeam and ply:GetTeam() == ply_o:GetTeam() ) or ( ply:GetRole() == ply_o:GetRole() ) ) and ply != ply_o then
         return true
     end
     return false
@@ -42,7 +42,6 @@ local function GetAliveTeammemberTableDG( ply_o, dg )
     local players = player.GetAll()
     if not players then return teammembers end
     for _, ply in pairs( players ) do
-      -- Added Compat for TTT Totem by GamefreakDE
       if SameTeam(ply, ply_o) then
           if dg then
               if ply != ply_o.DeathGrip then
@@ -79,7 +78,7 @@ local function CheckTTT()
                     net.WriteEntity(ply.DeathGrip)
                     net.Send(GetAliveTeammemberTableDG(ply, true))
                 end
-                if not SameTeam( ply, ply.DeathGrip ) and ply.DeathGrip:IsSpecial() then
+                if not SameTeam( ply, ply.DeathGrip ) then
                     net.Start( "TA_DG_NOTIF" )
                     net.WriteEntity(ply.DeathGrip)
                     net.WriteEntity(ply)

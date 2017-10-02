@@ -19,7 +19,7 @@
 local DPanelGH = nil
 
 local function clearPanelGH()
-  if DPanelGH then
+  if DPanelGH and IsValid( DPanelGH ) then
     DPanelGH:Remove()
   end
 end
